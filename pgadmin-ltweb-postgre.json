@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "ltweb-postgre",
+      "Group": "Servers",
+      "Host": "127.0.0.1",
+      "Port": 55434,
+      "MaintenanceDB": "ltweb_postgre",
+      "Username": "ltweb_app",
+      "SSLMode": "disable"
+    }
+  }
+}

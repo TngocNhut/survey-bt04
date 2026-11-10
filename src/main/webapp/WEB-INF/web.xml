@@ -9,11 +9,13 @@
     <servlet>
         <servlet-name>EmailListServlet</servlet-name>
         <servlet-class>murach.email.EmailListServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>EmailListServlet</servlet-name>
         <url-pattern>/emailList</url-pattern>
+        <url-pattern>/health</url-pattern>
     </servlet-mapping>
 
     <session-config>

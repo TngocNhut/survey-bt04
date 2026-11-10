@@ -1,6 +1,7 @@
 package murach.email;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Set;
@@ -16,6 +17,15 @@ import murach.data.UserDB;
 public class EmailListServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
+    @Override
+    public void init() throws ServletException {
+        try {
+            UserDB.initialize();
+        } catch (SQLException | IOException ex) {
+            throw new ServletException("Cannot initialize the survey database.", ex);
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request,
@@ -101,8 +111,15 @@ public class EmailListServlet extends HttpServlet {
             survey.setEmailAnnouncements(emailAnnouncements);
             survey.setContactVia(contactVia);
 
-            // Lưu người dùng vào danh sách trong RAM
-            UserDB.insert(user);
+            // Chi hien thi thanh cong sau khi PostgreSQL da luu du User va Survey.
+            try {
+                UserDB.insert(user, survey);
+            } catch (SQLException ex) {
+                getServletContext().log("Could not save survey response.", ex);
+                response.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE,
+                        "Your survey could not be saved. Please try again later.");
+                return;
+            }
 
             // Chuyển hai đối tượng sang trang kết quả
             request.setAttribute("user", user);
@@ -127,6 +144,19 @@ public class EmailListServlet extends HttpServlet {
                          HttpServletResponse response)
             throws ServletException, IOException {
 
+        if ("/health".equals(request.getServletPath())) {
+            response.setContentType("text/plain; charset=UTF-8");
+            try {
+                if (UserDB.isAvailable()) {
+                    response.getWriter().print("OK");
+                } else {
+                    response.sendError(503, "Database is unavailable.");
+                }
+            } catch (SQLException ex) {
+                response.sendError(503, "Database is unavailable.");
+            }
+            return;
+        }
         response.sendRedirect(request.getContextPath() + "/index.html");
     }
 

@@ -16,4 +16,4 @@
 | 59–62 | checkbox độc lập, radio chung name, checked mặc định |
 | 63–66 | select/option cho cách liên hệ |
 
-CSS điều chỉnh kích thước cho ảnh yêu cầu, không chép nguyên chiều rộng 400px của ví dụ Email List trong slide. Ngày sinh dùng input type="date" như GitHub tham khảo và ảnh yêu cầu cập nhật, mở lịch có sẵn của trình duyệt. Servlet/JSP và Maven/Tomcat là phần bổ sung theo repo tham khảo để Submit hoạt động. Không thêm React, Spring Boot, JavaScript hay cơ sở dữ liệu.
+CSS điều chỉnh kích thước cho ảnh yêu cầu, không chép nguyên chiều rộng 400px của ví dụ Email List trong slide. Ngày sinh dùng input type="date" như GitHub tham khảo và ảnh yêu cầu cập nhật, mở lịch có sẵn của trình duyệt. Servlet/JSP và Maven/Tomcat là phần bổ sung theo repo tham khảo để Submit hoạt động. Không thêm React, Spring Boot hay JavaScript. Theo yêu cầu bổ sung, UserDB dùng JDBC/PostgreSQL để lưu cả User và Survey; schema.sql, DB_*, health check và kiểm tra lưu trữ là phần mở rộng ngoài Chương 4.

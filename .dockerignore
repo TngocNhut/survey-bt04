@@ -3,3 +3,8 @@ target
 .git
 .idea
 *.zip
+
+.env
+.env.*
+preview
+*.dump

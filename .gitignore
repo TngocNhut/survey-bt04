@@ -3,3 +3,8 @@ target/
 .idea/
 *.iml
 preview/
+
+.env
+.env.*
+!.env.example
+*.dump

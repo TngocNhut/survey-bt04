@@ -1,7 +1,41 @@
+databases:
+  - name: ltweb-postgre
+    databaseName: ltweb_postgre
+    user: ltweb_app
+    plan: free
+    region: singapore
+    ipAllowList: []
+
 services:
   - type: web
     name: ch04-survey
     runtime: docker
     plan: free
+    region: singapore
     dockerfilePath: ./Dockerfile
-    healthCheckPath: /index.html
+    healthCheckPath: /health
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: ltweb-postgre
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: ltweb-postgre
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: ltweb-postgre
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: ltweb-postgre
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: ltweb-postgre
+          property: password
+      - key: DB_TABLE
+        value: w2_survey
+      - key: DB_SSLMODE
+        value: require

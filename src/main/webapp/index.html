@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Murach's Java Servlets and JSP</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <img src="im/anh.png" alt="Murach logo" class="logo">
+    </header>
+    <h1>Survey</h1>
+    <p>
+        If you have a moment, we'd appreciate it if you would
+        fill out this survey.
+    </p>
+    <form action="emailList" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="action" value="add">
+
+        <h2>Your information:</h2>
+
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" maxlength="100" autocomplete="given-name" required><br>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" maxlength="100" autocomplete="family-name" required><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" maxlength="254" autocomplete="email" required><br>
+
+        <label for="date">Date of Birth</label>
+        <input type="date" id="date" name="date" autocomplete="bday" required><br>
+
+        <h2>How did you hear about us?</h2>
+
+        <input type="radio" id="searchEngine"
+               name="heardFrom" value="Search engine" checked>
+        <label for="searchEngine" class="choice-label">Search engine</label>
+
+        <input type="radio" id="wordOfMouth"
+               name="heardFrom" value="Word of mouth">
+        <label for="wordOfMouth" class="choice-label">Word of mouth</label>
+
+        <input type="radio" id="socialMedia"
+               name="heardFrom" value="Social Media">
+        <label for="socialMedia" class="choice-label">Social Media</label>
+
+        <input type="radio" id="other"
+               name="heardFrom" value="Other">
+        <label for="other" class="choice-label">Other</label><br>
+
+        <h2>
+            Would you like to receive announcements
+            about new CDs and special offers?
+        </h2>
+
+        <input type="checkbox" id="wantsUpdates"
+               name="wantsUpdates" value="yes">
+        <label for="wantsUpdates" class="choice-label">
+            YES, I'd like that.
+        </label><br><br>
+
+        <input type="checkbox" id="emailAnnouncements"
+               name="emailAnnouncements" value="yes">
+        <label for="emailAnnouncements" class="choice-label">
+            YES, please send me email announcements.
+        </label><br><br>
+
+        <label for="contactVia" class="choice-label">
+            Please contact me by:
+        </label>
+
+        <select id="contactVia" name="contactVia">
+            <option value="Email or postal mail">Email or postal mail</option>
+            <option value="Email only">Email only</option>
+            <option value="Postal mail only">Postal mail only</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit" id="submit">
+    </form>
+</body>
+</html>
+

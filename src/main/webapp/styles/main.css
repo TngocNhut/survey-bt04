@@ -1,0 +1,116 @@
+/* Mau theo slide Chapter 4 va trang mau: teal tren nen trang. */
+:root {
+    color-scheme: light;
+}
+
+body {
+    color: #000000;
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 2em;
+    max-width: 30em;
+}
+.logo {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+}
+h1,
+h2 {
+    color: #008080;
+}
+h2 {
+    clear: both;
+    font-size: 1.4em;
+    margin-top: 1.2em;
+}
+label {
+    float: left;
+    width: 7em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+#firstName,
+#lastName,
+#email,
+#date {
+    box-sizing: border-box;
+    width: 15em;
+    max-width: 100%;
+    height: 1.6em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.2em;
+    font: inherit;
+}
+.choice-label {
+    float: none;
+    display: inline;
+    width: auto;
+    margin: 0 0.4em 0 0;
+    font-weight: normal;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    margin-left: 0;
+    margin-right: 0.2em;
+    vertical-align: middle;
+}
+select {
+    max-width: 100%;
+    font: inherit;
+}
+span {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+    overflow-wrap: anywhere;
+}
+
+br {
+    clear: both;
+}
+
+#submit {
+    margin-left: 0;
+    font: inherit;
+}
+
+
+@media (max-width: 480px) {
+    body {
+        margin: 1em;
+    }
+
+    label {
+        float: none;
+        display: block;
+        width: auto;
+    }
+    .choice-label {
+        display: inline;
+        }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    span,
+    #submit {
+        margin-left: 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"] {
+        width: 100%;
+    }
+}
+/* Keep native form controls, as in Chapter 4. */
+:focus-visible { outline: 2px solid #008080; outline-offset: 2px; }
+
+
+/* Giu chu trong cac control cung mau den nhu mau de. */
+input, select, button, option {
+    color: #000000;
+}

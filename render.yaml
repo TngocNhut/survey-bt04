@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ch04-survey
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /index.html
